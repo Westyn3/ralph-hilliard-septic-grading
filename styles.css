@@ -24,13 +24,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
-    z-index: 10;   /* ⬅ FIX: Makes dropdown appear over hero */
-}
 
-.dropdown-content {
-    z-index: 20;
-    position: absolute;
+    position: relative;
+    z-index: 9999; /* ⬅ highest layer so dropdown sits OVER hero */
 }
 
 .logo {
@@ -65,54 +61,69 @@ nav a:hover {
     background: #b81f1f;
 }
 
-/* Dropdown */
+/* ------------------------------
+   DROPDOWN
+--------------------------------*/
 .dropdown {
     position: relative;
+    z-index: 9999; /* ensures dropdown sits over everything */
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background: #111;
-    min-width: 200px;
-    border-radius: 6px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-    overflow: hidden;
-}
+    top: 100%;
+    left: 0;
 
-.dropdown:hover .dropdown-content {
-    display: block;
+    background: #111; /* dark menu */
+    border-radius: 6px;
+
+    min-width: 200px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+
+    z-index: 9999; /* ⬅ absolutely ensures visibility */
 }
 
 .dropdown-content a {
     display: block;
     padding: 12px 18px;
     color: white;
+    background: #111;
+    border-bottom: 1px solid #222;
 }
 
 .dropdown-content a:hover {
-    background: #D62828;
+    background: #D62828; /* just the hovered item turns red */
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 /* ------------------------------
    HERO SECTION
 --------------------------------*/
 .hero {
-    height: 65vh; /* perfect height for the image */
+    height: 65vh;
     background: url("images/hero.jpg") center/cover no-repeat;
     position: relative;
+    z-index: 1; /* BELOW navbar */
 }
 
 .hero-overlay {
     height: 100%;
     width: 100%;
-    background: rgba(0,0,0,0.55); /* ⬅ dark fog overlay */
+    background: rgba(0,0,0,0.55); /* Dark fog */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* place text higher */
-    padding-top: 120px; /* adjusts vertical position */
+    justify-content: flex-start;
+    padding-top: 120px;
     text-align: center;
+
+    position: relative;
+    z-index: 2; /* below navbar but above background */
 }
 
 .hero h1 {
@@ -144,7 +155,6 @@ nav a:hover {
     font-size: 20px;
     font-weight: 600;
     white-space: nowrap;
-    width: auto;
 }
 
 .hero-btn:hover {
@@ -216,7 +226,7 @@ nav a:hover {
 }
 
 /* ------------------------------
-   SERVICE PAGES
+   SERVICE DETAILS PAGES
 --------------------------------*/
 .service-section {
     display: flex;
@@ -288,8 +298,6 @@ nav a:hover {
     border-radius: 6px;
     font-size: 18px;
     cursor: pointer;
-    white-space: nowrap;
-    width: auto;
 }
 
 /* ------------------------------
@@ -350,13 +358,6 @@ footer {
         gap: 12px;
     }
 
-    nav a,
-    .dropbtn {
-        margin: 0 !important;
-        padding: 6px 10px;
-        font-size: 16px;
-    }
-
     .hero {
         height: 55vh;
     }
@@ -393,3 +394,4 @@ footer {
         width: 100%;
     }
 }
+
