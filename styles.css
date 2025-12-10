@@ -28,6 +28,11 @@ body {
     z-index: 10;   /* ⬅ FIX: Makes dropdown appear over hero */
 }
 
+.dropdown-content {
+    z-index: 20;
+    position: absolute;
+}
+
 .logo {
     font-size: 30px;
     font-weight: 800;
