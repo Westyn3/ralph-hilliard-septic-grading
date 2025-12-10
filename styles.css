@@ -103,6 +103,10 @@ nav a:hover {
     width: auto;             /* ⬅ Ensures button stays button-sized */
 }
 
+.hero-btn {
+    max-width: fit-content;
+}
+
 .hero h1 {
     font-size: 90px;
     font-weight: 900;
