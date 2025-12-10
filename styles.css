@@ -1,1 +1,126 @@
+/* GLOBAL STYLES */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #F8F7F5;
+    color: #111;
+}
+
+h1, h2, h3 {
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 1px;
+}
+
+/* NAVIGATION */
+.navbar {
+    background: #000;
+    color: #fff;
+    padding: 18px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.navbar nav .cta {
+    background: #D62828;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+/* HERO SECTION */
+.hero {
+    height: 75vh;
+    background: url("images/hero.jpg") center/cover no-repeat;
+    position: relative;
+}
+
+.hero-overlay {
+    background: rgba(0,0,0,0.55);
+    height: 100%;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding-top: 150px;
+}
+
+.hero h1 {
+    font-size: 80px;
+    margin-bottom: 10px;
+}
+
+.hero h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.hero-btn {
+    background: #D62828;
+    padding: 14px 28px;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 20px;
+}
+
+/* SERVICES SECTION */
+.services {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.service-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.service-card {
+    background: white;
+    padding: 25px;
+    width: 280px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.service-card a {
+    color: #D62828;
+    font-weight: bold;
+}
+
+/* CTA STRIP */
+.cta-strip {
+    background: #D62828;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.strip-btn {
+    background: white;
+    color: #D62828;
+    padding: 14px 28px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    background: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
 
