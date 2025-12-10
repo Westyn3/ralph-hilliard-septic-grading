@@ -31,10 +31,15 @@ body {
     font-weight: 800;
 }
 
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 nav a {
     color: white;
     text-decoration: none;
-    margin-left: 24px;
     font-size: 16px;
     font-weight: 500;
 }
@@ -56,11 +61,6 @@ nav a:hover {
 /* Dropdown */
 .dropdown {
     position: relative;
-    display: inline-block;
-}
-
-.dropbtn:hover {
-    color: #D62828;
 }
 
 .dropdown-content {
@@ -68,18 +68,23 @@ nav a:hover {
     position: absolute;
     background: #111;
     min-width: 200px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
     border-radius: 6px;
-}
-
-.dropdown-content a {
-    color: white;
-    padding: 14px 18px;
-    display: block;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    overflow: hidden;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 18px;
+    color: white;
+}
+
+.dropdown-content a:hover {
+    background: #D62828;
 }
 
 /* ------------------------------
@@ -88,48 +93,52 @@ nav a:hover {
 .hero {
     height: 80vh;
     background: url("images/hero.jpg") center/cover no-repeat;
+    position: relative;
 }
 
 .hero-overlay {
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.55);
     display: flex;
     flex-direction: column;
-    align-items: center;     /* ⬅ Centers button */
+    align-items: center;        /* keeps everything centered */
     justify-content: center;
     text-align: center;
-}
-
-.hero-overlay a.hero-btn {
-    display: inline-block;   /* ⬅ Prevents stretching */
-    width: auto;             /* ⬅ Ensures button stays button-sized */
-}
-
-.hero-btn {
-    max-width: fit-content;
+    padding: 20px;
 }
 
 .hero h1 {
     font-size: 90px;
     font-weight: 900;
+    color: white;
 }
 
 .hero h2 {
     font-size: 34px;
+    color: white;
+    margin-top: 10px;
 }
 
 .hero p {
     font-size: 20px;
+    color: white;
+    margin-top: 10px;
 }
 
+/* FIXED BUTTON STYLE */
 .hero-btn {
-    display: inline-block;        /* ⬅ FIX BUTTON STRETCHING */
-    margin-top: 15px;
+    display: inline-block;   
     background: #D62828;
-    padding: 12px 24px;           /* ⬅ SMALLER, CLEANER BUTTON */
-    font-size: 18px;              /* ⬅ Prevents overlap */
+    padding: 12px 26px;
+    margin-top: 20px;
+    border-radius: 6px;
     color: white;
     text-decoration: none;
-    border-radius: 6px;
-    white-space: nowrap;          /* ⬅ Prevents breaking into two lines */
+    font-size: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+    width: auto;              /* keeps it button-sized */
 }
 
 .hero-btn:hover {
@@ -150,6 +159,11 @@ nav a:hover {
     font-weight: 800;
 }
 
+.page-header p {
+    font-size: 18px;
+    margin-top: 8px;
+}
+
 /* ------------------------------
    SERVICE GRID
 --------------------------------*/
@@ -157,11 +171,17 @@ nav a:hover {
     padding: 60px 40px;
 }
 
+.services h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
 .service-grid {
     display: flex;
+    justify-content: center;
     gap: 40px;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
 .service-card {
@@ -174,27 +194,34 @@ nav a:hover {
 }
 
 .service-card h3 {
-    font-size: 26px;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    margin-bottom: 14px;
+    color: #555;
 }
 
 .service-card a {
     color: #D62828;
     font-weight: 600;
+    text-decoration: none;
 }
 
 /* ------------------------------
-   SERVICE PAGES (image + text sections)
+   SERVICE PAGES
 --------------------------------*/
 .service-section {
     display: flex;
-    gap: 40px;
     align-items: center;
+    gap: 40px;
     background: white;
     padding: 40px;
     max-width: 1100px;
     margin: 40px auto;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
     border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
 }
 
 .service-section.reverse {
@@ -211,41 +238,51 @@ nav a:hover {
 }
 
 .service-text ul {
+    margin-top: 12px;
     margin-left: 20px;
 }
 
+.service-text .hero-btn {
+    margin-top: 20px;
+}
+
 /* ------------------------------
-   CONTACT PAGE
+   CONTACT
 --------------------------------*/
 .phone-link {
     color: #D62828;
     font-weight: bold;
-    text-decoration: none;
 }
 
-.phone-link:hover {
-    text-decoration: underline;
+.content-section {
+    max-width: 900px;
+    background: white;
+    padding: 40px;
+    margin: 40px auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
 }
 
 .contact-form input,
 .contact-form textarea {
     width: 100%;
     padding: 12px;
-    border: 2px solid #ddd;
     border-radius: 6px;
+    border: 2px solid #ddd;
     margin-bottom: 12px;
 }
 
 .contact-form button {
     display: inline-block;
-    width: auto; 
-    padding: 12px 22px;
-    font-size: 18px;
     background: #D62828;
     color: white;
+    padding: 12px 26px;
     border: none;
     border-radius: 6px;
+    font-size: 18px;
     cursor: pointer;
+    white-space: nowrap;
+    width: auto;
 }
 
 /* ------------------------------
@@ -260,17 +297,22 @@ nav a:hover {
 
 .cta-strip h2 {
     font-size: 36px;
+    margin-bottom: 10px;
 }
 
 .strip-btn {
     display: inline-block;
-    margin-top: 15px;
-    background: white;
-    padding: 12px 22px;
+    padding: 12px 26px;
     border-radius: 6px;
+    background: white;
     color: #D62828;
-    font-size: 18px;
-    white-space: nowrap;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.strip-btn:hover {
+    background: #f2f2f2;
 }
 
 /* ------------------------------
@@ -281,10 +323,11 @@ footer {
     color: white;
     padding: 25px;
     text-align: center;
+    margin-top: 60px;
 }
 
 /* ------------------------------
-   MOBILE FIXES
+   MOBILE RESPONSIVE
 --------------------------------*/
 @media (max-width: 768px) {
 
@@ -292,20 +335,36 @@ footer {
         flex-direction: column;
         gap: 10px;
         padding: 16px 20px;
-        text-align: center;
     }
 
     nav {
-        display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 14px;
+        gap: 12px;
     }
 
-    nav a, .dropbtn {
-        font-size: 16px;
-        margin: 0;
+    nav a,
+    .dropbtn {
+        margin: 0 !important;
         padding: 6px 10px;
+        font-size: 16px;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .hero h2 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero-btn {
+        font-size: 18px;
+        padding: 10px 20px;
     }
 
     .service-section,
@@ -317,18 +376,5 @@ footer {
     .service-img,
     .service-text {
         width: 100%;
-    }
-
-   @media (max-width: 768px) {
-
-    .hero-btn,
-    .strip-btn,
-    .cta {
-        font-size: 16px;
-        padding: 10px 20px;
-    }
-
-    .service-text .hero-btn {
-        margin-top: 12px;
     }
 }
