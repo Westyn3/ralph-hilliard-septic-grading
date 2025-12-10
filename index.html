@@ -1,46 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ALLCON – Septic, Grading & MX</title>
-    <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALLCON – Septic, Grading & MX</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="navbar">
     <div class="logo">ALLCON</div>
-
-    <!-- DESKTOP NAV -->
-    <nav class="desktop-nav">
+    <nav>
         <a href="index.html">Home</a>
 
         <div class="dropdown">
             <a href="services.html" class="dropbtn">Services ▼</a>
             <div class="dropdown-content">
-                <a href="septic.html">Septic Installation</a>
-                <a href="grading.html">Grading & Land Clearing</a>
-                <a href="mx.html">MX Track Building</a>
-            </div>
-        </div>
-
-        <a href="contact.html" class="cta">Contact</a>
-    </nav>
-
-    <!-- MOBILE MENU ICON -->
-    <div class="mobile-menu-icon" onclick="toggleMobileMenu()">
-        ☰
-    </div>
-
-    <!-- MOBILE NAV -->
-    <nav class="mobile-nav" id="mobileNav">
-        <a href="index.html">Home</a>
-
-        <div class="mobile-submenu">
-            <button onclick="toggleMobileServices()" class="mobile-services-btn">
-                Services ▼
-            </button>
-            <div class="mobile-services-list" id="mobileServicesList">
                 <a href="septic.html">Septic Installation</a>
                 <a href="grading.html">Grading & Land Clearing</a>
                 <a href="mx.html">MX Track Building</a>
@@ -62,23 +37,24 @@
 
 <section class="services">
     <h2>Our Services</h2>
+
     <div class="service-grid">
 
         <div class="service-card">
             <h3>Septic Installation</h3>
-            <p>New systems, drain fields, inspections, repairs and more.</p>
+            <p>New systems, drain fields, inspections, and repairs.</p>
             <a href="septic.html">Learn More →</a>
         </div>
 
         <div class="service-card">
             <h3>Grading & Land Clearing</h3>
-            <p>Driveways, house pads, site prep, trenching, and more.</p>
+            <p>Driveways, pads, land clearing & dirt work.</p>
             <a href="grading.html">Learn More →</a>
         </div>
 
         <div class="service-card">
             <h3>MX Track Building</h3>
-            <p>Backyard tracks, competition tracks, reshaping & maintenance.</p>
+            <p>Backyard tracks, competition tracks & reshaping.</p>
             <a href="mx.html">Learn More →</a>
         </div>
 
@@ -86,26 +62,14 @@
 </section>
 
 <section class="cta-strip">
-    <h2>Ready to Get Started?</h2>
-    <p>Call or text us today for a free estimate.</p>
+    <h2>Ready to Start Your Project?</h2>
+    <p>Call or message us today for a free estimate.</p>
     <a href="contact.html" class="strip-btn">Contact Us</a>
 </section>
 
 <footer>
     <p>© 2025 ALLCON – Gainesville, GA</p>
 </footer>
-
-<script>
-function toggleMobileMenu() {
-    const menu = document.getElementById("mobileNav");
-    menu.classList.toggle("open");
-}
-
-function toggleMobileServices() {
-    const services = document.getElementById("mobileServicesList");
-    services.classList.toggle("open");
-}
-</script>
 
 </body>
 </html>
