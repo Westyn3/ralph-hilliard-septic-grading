@@ -114,13 +114,15 @@ nav a:hover {
 }
 
 .hero-btn {
+    display: inline-block;        /* ⬅ FIX BUTTON STRETCHING */
     margin-top: 15px;
     background: #D62828;
-    padding: 16px 32px;
-    font-size: 22px;
+    padding: 12px 24px;           /* ⬅ SMALLER, CLEANER BUTTON */
+    font-size: 18px;              /* ⬅ Prevents overlap */
     color: white;
     text-decoration: none;
     border-radius: 6px;
+    white-space: nowrap;          /* ⬅ Prevents breaking into two lines */
 }
 
 .hero-btn:hover {
@@ -228,12 +230,15 @@ nav a:hover {
 }
 
 .contact-form button {
-    padding: 14px 20px;
+    display: inline-block;
+    width: auto; 
+    padding: 12px 22px;
+    font-size: 18px;
     background: #D62828;
     color: white;
-    border-radius: 6px;
-    font-size: 18px;
     border: none;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
 /* ------------------------------
@@ -251,11 +256,14 @@ nav a:hover {
 }
 
 .strip-btn {
+    display: inline-block;
     margin-top: 15px;
     background: white;
-    padding: 14px 28px;
+    padding: 12px 22px;
     border-radius: 6px;
     color: #D62828;
+    font-size: 18px;
+    white-space: nowrap;
 }
 
 /* ------------------------------
@@ -302,5 +310,18 @@ footer {
     .service-img,
     .service-text {
         width: 100%;
+    }
+
+   @media (max-width: 768px) {
+
+    .hero-btn,
+    .strip-btn,
+    .cta {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .service-text .hero-btn {
+        margin-top: 12px;
     }
 }
