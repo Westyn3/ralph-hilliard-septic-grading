@@ -34,6 +34,18 @@ body {
     font-weight: 800;
 }
 
+.logo-img {
+    height: 48px;      /* adjust size here */
+    width: auto;
+    display: block;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+
 nav {
     display: flex;
     align-items: center;
