@@ -253,17 +253,14 @@ nav a:hover {
    PAGE HEADERS
 --------------------------------*/
 .page-header {
-    background: #FFE5E5; /* soft light red */
+    background: rgba(214,40,40,0.15); /* 15% red */
     padding: 60px 20px;
     text-align: center;
 }
 
-.page-header h1 {
-    color: #D62828; /* your brand red */
-}
-
+.page-header h1,
 .page-header p {
-    color: #333;
+    color: #111;
 }
 
 .page-header h1 {
