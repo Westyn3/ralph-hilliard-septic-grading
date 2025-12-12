@@ -398,6 +398,10 @@ footer {
         justify-content: center;
         gap: 12px;
     }
+   
+   .gallery-row img {
+    width: 45%;   /* two per row on mobile */
+   }
 
     .hero {
         height: 55vh;
