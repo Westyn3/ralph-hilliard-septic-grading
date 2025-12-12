@@ -324,8 +324,8 @@ nav a:hover {
     /* 🔥 Subtle faded ALLCON red background */
     background: linear-gradient(
         to bottom right,
-        rgba(214, 40, 40, 0.12),
-        rgba(214, 40, 40, 0.06)
+        rgba(214, 40, 40, 0.25),
+        rgba(214, 40, 40, 0.25)
     );
 
     padding: 40px;
