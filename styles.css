@@ -114,6 +114,35 @@ nav a:hover {
 }
 
 /* ------------------------------
+   GALLERY STRIP
+--------------------------------*/
+.image-gallery {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.image-gallery h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.gallery-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap; /* allows mobile-friendly wrapping */
+}
+
+.gallery-row img {
+    width: 18%;           /* five images fit in a row */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    object-fit: cover;
+}
+
+/* ------------------------------
    HERO SECTION
 --------------------------------*/
 .hero {
