@@ -267,6 +267,11 @@ nav a:hover {
 .page-header p {
     font-size: 18px;
     margin-top: 8px;
+    max-width: 900px;        /* keeps text tight and even */
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+    text-align: center;
 }
 
 /* ------------------------------
