@@ -475,6 +475,22 @@ nav a:hover {
 }
 
 /* ------------------------------
+   GOOGLE REVIEWS SECTION
+--------------------------------*/
+.reviews-section {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.reviews-section h2 {
+    font-size: 34px;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+/* ------------------------------
    FOOTER
 --------------------------------*/
 footer {
