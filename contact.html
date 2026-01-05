@@ -65,16 +65,21 @@
     <form class="contact-form" action="https://formspree.io/f/mgvgrkep" method="POST">
 
         <input type="text" name="name" placeholder="Your Name" required>
-
+    
         <input type="email" name="email" placeholder="Your Email" required>
-
+    
+        <input type="tel" name="phone" placeholder="Your Phone Number" 
+               required pattern="[0-9]{10}" 
+               title="Please enter a valid 10-digit phone number">
+    
         <textarea name="message" placeholder="Your Message" required></textarea>
-
-        <!-- You can track spam bots with this hidden anti-bot field -->
+    
+        <!-- Anti-spam bot honeypot field -->
         <input type="text" name="_gotcha" style="display:none">
-
+    
         <button type="submit">Send Message</button>
     </form>
+
 
 </section>
 
