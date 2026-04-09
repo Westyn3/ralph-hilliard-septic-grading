@@ -193,7 +193,7 @@ nav a:hover {
    HERO SECTION
 --------------------------------*/
 .hero {
-    height: 65vh;
+    height: 80vh;
     position: relative;
     overflow: hidden;
     z-index: 1; /* BELOW navbar */
