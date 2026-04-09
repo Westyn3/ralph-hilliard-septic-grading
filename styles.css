@@ -210,6 +210,19 @@ nav a:hover {
     z-index: 0;
 }
 
+.mobile-video {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-video {
+        display: none;
+    }
+    .mobile-video {
+        display: block;
+    }
+}
+
 .hero-overlay {
     height: 100%;
     width: 100%;
