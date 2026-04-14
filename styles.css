@@ -591,5 +591,436 @@ footer {
     .service-text {
         width: 100%;
     }
+
+/* ------------------------------
+   REDESIGN — NEW HOMEPAGE STYLES
+--------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap');
+
+.ac-body {
+    background: #0a0a0a;
+    font-family: 'Barlow', sans-serif;
+}
+
+/* NAVBAR */
+.ac-nav {
+    background: #000;
+    padding: 14px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #C0392B;
+    position: relative;
+    z-index: 9999;
+}
+
+.ac-nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.ac-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.ac-nav-links a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+}
+
+.ac-nav-links a:hover {
+    color: #C0392B;
+}
+
+.ac-nav-cta {
+    background: #C0392B !important;
+    color: #fff !important;
+    padding: 8px 20px;
+    border-radius: 4px;
+}
+
+.ac-nav-cta:hover {
+    background: #a93226 !important;
+}
+
+/* HERO */
+.ac-hero {
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ac-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.60);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.ac-hero-accent-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background: #C0392B;
+    z-index: 3;
+}
+
+.ac-hero-accent-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #C0392B;
+    z-index: 3;
+}
+
+.ac-hero-content {
+    text-align: center;
+    z-index: 4;
+    padding: 0 20px;
+}
+
+.ac-hero-sub {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #C0392B;
+    margin: 0 0 8px;
+}
+
+.ac-hero-h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 120px;
+    letter-spacing: 8px;
+    color: #fff;
+    margin: 0;
+    line-height: 1;
+}
+
+.ac-hero-location {
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #aaa;
+    margin: 8px 0 32px;
+}
+
+.ac-hero-btn {
+    display: inline-block;
+    background: #C0392B;
+    color: #fff;
+    padding: 16px 40px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 2px solid #C0392B;
+    transition: all 0.2s;
+}
+
+.ac-hero-btn:hover {
+    background: transparent;
+    color: #C0392B;
+}
+
+/* STATS BAR */
+.ac-stats {
+    background: #C0392B;
+    padding: 24px 40px;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+}
+
+.ac-stat {
+    text-align: center;
+    padding: 0 56px;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.ac-stat:last-child {
+    border-right: none;
+}
+
+.ac-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 46px;
+    color: #fff;
+    line-height: 1;
+}
+
+.ac-stat-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 4px;
+}
+
+/* SERVICES */
+.ac-services {
+    background: #0f0f0f;
+    padding: 80px 40px;
+}
+
+.ac-section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #C0392B;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.ac-section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px;
+    letter-spacing: 3px;
+    text-align: center;
+    color: #fff;
+    margin: 0 0 52px;
+}
+
+.ac-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.ac-card {
+    background: #161616;
+    padding: 40px 32px;
+    border-top: 3px solid #C0392B;
+    transition: all 0.2s;
+}
+
+.ac-card:hover {
+    background: #1e1e1e;
+    transform: translateY(-4px);
+}
+
+.ac-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: #fff;
+    margin: 0 0 12px;
+}
+
+.ac-card p {
+    font-size: 15px;
+    color: #888;
+    line-height: 1.7;
+    margin: 0 0 20px;
+}
+
+.ac-card-link {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #C0392B;
+    text-decoration: none;
+}
+
+.ac-card-link:hover {
+    color: #e74c3c;
+}
+
+/* REVIEWS */
+.ac-reviews {
+    background: #0a0a0a;
+    padding: 80px 40px;
+}
+
+/* CTA STRIP */
+.ac-cta {
+    background: #111;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    padding: 80px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.ac-cta-accent {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #C0392B;
+}
+
+.ac-cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px;
+    letter-spacing: 3px;
+    color: #fff;
+    margin: 0 0 8px;
+}
+
+.ac-cta-sub {
+    font-size: 16px;
+    color: #888;
+    margin: 0 0 36px;
+}
+
+.ac-cta-btn {
+    display: inline-block;
+    background: #C0392B;
+    color: #fff;
+    padding: 16px 48px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 2px solid #C0392B;
+    transition: all 0.2s;
+    margin-right: 12px;
+}
+
+.ac-cta-btn:hover {
+    background: transparent;
+    color: #C0392B;
+}
+
+.ac-cta-btn2 {
+    display: inline-block;
+    background: transparent;
+    color: #fff;
+    padding: 16px 48px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 2px solid #444;
+    transition: all 0.2s;
+}
+
+.ac-cta-btn2:hover {
+    border-color: #fff;
+}
+
+/* FOOTER */
+.ac-footer {
+    background: #000;
+    padding: 32px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid #C0392B;
+}
+
+.ac-footer-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 4px;
+    color: #fff;
+}
+
+.ac-footer-links {
+    display: flex;
+    gap: 24px;
+}
+
+.ac-footer-links a {
+    color: #666;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+}
+
+.ac-footer-links a:hover {
+    color: #C0392B;
+}
+
+.ac-footer-copy {
+    font-size: 12px;
+    color: #444;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .ac-nav {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px 20px;
+    }
+
+    .ac-nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .ac-hero-h1 {
+        font-size: 72px;
+    }
+
+    .ac-hero-sub {
+        font-size: 13px;
+    }
+
+    .ac-stats {
+        flex-wrap: wrap;
+        gap: 24px;
+        padding: 24px 20px;
+    }
+
+    .ac-stat {
+        border-right: none;
+        padding: 0 24px;
+        width: 45%;
+    }
+
+    .ac-cards {
+        grid-template-columns: 1fr;
+        gap: 2px;
+    }
+
+    .ac-footer {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .ac-cta-btn, .ac-cta-btn2 {
+        display: block;
+        margin: 8px auto;
+        max-width: 260px;
+    }
+}
 }
 
