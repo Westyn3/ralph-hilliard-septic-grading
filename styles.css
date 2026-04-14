@@ -673,6 +673,16 @@ footer {
     z-index: 3;
 }
 
+.ac-hero-accent-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background: #C0392B;
+    z-index: 3;
+}
+
 .ac-hero-accent-bottom {
     position: absolute;
     bottom: 0;
