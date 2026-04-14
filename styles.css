@@ -1355,3 +1355,76 @@ footer {
         gap: 40px;
     }
 }
+
+/* ------------------------------
+   SERVICES PAGE — NEW STYLES
+--------------------------------*/
+.ac-services-page {
+    background: #0f0f0f;
+    padding: 72px 40px;
+}
+
+.ac-services-page-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.ac-service-big-card {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: #161616;
+    border-top: 3px solid #C0392B;
+    overflow: hidden;
+}
+
+.ac-service-big-card-reverse {
+    flex-direction: row-reverse;
+    border-top: 3px solid #333;
+    border-bottom: 3px solid #C0392B;
+}
+
+.ac-service-big-text {
+    width: 55%;
+    padding: 52px 48px;
+}
+
+.ac-service-big-img {
+    width: 45%;
+    height: 320px;
+    overflow: hidden;
+}
+
+.ac-service-big-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.ac-service-big-card:hover .ac-service-big-img img {
+    transform: scale(1.04);
+}
+
+@media (max-width: 768px) {
+    .ac-service-big-card,
+    .ac-service-big-card-reverse {
+        flex-direction: column;
+    }
+
+    .ac-service-big-text,
+    .ac-service-big-img {
+        width: 100%;
+    }
+
+    .ac-service-big-img {
+        height: 220px;
+    }
+
+    .ac-service-big-text {
+        padding: 32px 24px;
+    }
+}
