@@ -1555,3 +1555,21 @@ footer {
         font-size: 13px;
     }
 }
+
+.ac-footer-social {
+    display: flex;
+    gap: 24px;
+}
+
+.ac-footer-social a {
+    color: #666;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+}
+
+.ac-footer-social a:hover {
+    color: #C0392B;
+}
