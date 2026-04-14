@@ -215,6 +215,27 @@ nav a:hover {
     .mobile-video { display: block; }
 }
 
+@media (max-width: 768px) {
+    .ac-hero {
+        height: 55vh;
+    }
+
+    .ac-hero video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    .ac-hero-accent-left,
+    .ac-hero-accent-right {
+        display: none;
+    }
+}
+
 .hero-overlay {
     height: 100%;
     width: 100%;
