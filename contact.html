@@ -10,6 +10,8 @@
 <meta property="og:url" content="https://allconga.com/contact.html">
 <title>Contact ALLCON | Free Estimates | Gainesville, GA</title>
 <link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,80 +42,101 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-8EY333C7GL');
 </script>
-    
 </head>
-    
-<body>
 
-<header class="navbar">
-    <div class="logo">
-        <a href="index.html">
-            <img src="images/ALLCON.png" alt="ALLCON Logo" class="logo-img">
-        </a>
+<body class="ac-body">
+
+<header class="ac-nav">
+  <div class="ac-nav-logo">
+    <a href="index.html">
+      <img src="images/ALLCON.png" alt="ALLCON Logo" class="logo-img">
+    </a>
+  </div>
+  <nav class="ac-nav-links">
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+      <a href="services.html" class="dropbtn">Services ▼</a>
+      <div class="dropdown-content">
+        <a href="septic.html">Septic Installation</a>
+        <a href="grading.html">Grading, Land Clearing, & Drain Systems</a>
+        <a href="mx.html">MX Track Building</a>
+      </div>
     </div>
-
-    <nav>
-        <a href="index.html">Home</a>
-
-        <div class="dropdown">
-            <a href="services.html" class="dropbtn">Services ▼</a>
-            <div class="dropdown-content">
-                <a href="septic.html">Septic Installation</a>
-                <a href="grading.html">Grading, Land Clearing, & Drain Systems</a>
-                <a href="mx.html">MX Track Building</a>
-            </div>
-        </div>
-
-        <a href="contact.html" class="cta">Contact</a>
-    </nav>
+    <a href="contact.html" class="ac-nav-cta">Contact</a>
+  </nav>
 </header>
 
-<section class="page-header">
-    <h1>Contact Us</h1>
-    <p>Call or message anytime for a free estimate.</p>
+<section class="ac-page-header">
+  <div class="ac-page-header-inner">
+    <p class="ac-section-label">Get In Touch</p>
+    <h1 class="ac-page-title">Contact ALLCON</h1>
+    <p class="ac-page-sub">Call or message anytime for a free estimate. We serve North Georgia and beyond.</p>
+  </div>
 </section>
 
-<section class="content-section">
+<section class="ac-contact-section">
+  <div class="ac-contact-inner">
 
-    <h2>Get In Touch With Ralph Hilliard</h2>
+    <div class="ac-contact-info">
+      <p class="ac-section-label">Reach Us Directly</p>
+      <h2 class="ac-service-heading">Get In Touch With Ralph Hilliard</h2>
+      <div class="ac-contact-details">
+        <div class="ac-contact-item">
+          <span class="ac-contact-label">Service Area</span>
+          <span class="ac-contact-value">Georgia — from Atlanta to the North Georgia mountains</span>
+        </div>
+        <div class="ac-contact-item">
+          <span class="ac-contact-label">Phone</span>
+          <a href="tel:6784100310" class="ac-contact-phone">(678) 410-0310</a>
+        </div>
+        <div class="ac-contact-item">
+          <span class="ac-contact-label">Email</span>
+          <span class="ac-contact-value">hhralph3@gmail.com</span>
+        </div>
+      </div>
 
-    <p><strong>Service Area:</strong> Georgia — from Atlanta to the North Georgia mountains</p>
+      <div class="ac-services-offered">
+        <p class="ac-section-label" style="text-align: left; margin-top: 32px;">Services</p>
+        <div class="ac-service-tags">
+          <span class="ac-tag">Septic Installation</span>
+          <span class="ac-tag">Land Grading</span>
+          <span class="ac-tag">Land Clearing</span>
+          <span class="ac-tag">Drain Systems</span>
+          <span class="ac-tag">MX Track Building</span>
+          <span class="ac-tag">Stormwater Retention</span>
+        </div>
+      </div>
+    </div>
 
-    <p><strong>Phone:</strong>
-        <a href="tel:6784100310" class="phone-link">(678) 410-0310</a>
-    </p>
-
-    <p><strong>Email:</strong> hhralph3@gmail.com</p>
-
-    <h3>Send a Message</h3>
-
-    <!-- CONTACT FORM – FORMSPREE VERSION -->
-    <form class="contact-form" action="https://formspree.io/f/mgvgrkep" method="POST">
-
+    <div class="ac-contact-form-wrap">
+      <p class="ac-section-label">Free Estimate</p>
+      <h2 class="ac-service-heading">Send a Message</h2>
+      <form class="ac-contact-form" action="https://formspree.io/f/mgvgrkep" method="POST">
         <input type="text" name="name" placeholder="Your Name" required>
-    
         <input type="email" name="email" placeholder="Your Email" required>
-    
-        <input type="tel" name="phone" placeholder="Your Phone Number" 
-               required pattern="[0-9]{10}" 
+        <input type="tel" name="phone" placeholder="Your Phone Number"
+               required pattern="[0-9]{10}"
                title="Please enter a valid 10-digit phone number">
-    
-        <textarea name="message" placeholder="Your Message" required></textarea>
-    
-        <!-- Anti-spam bot honeypot field -->
+        <textarea name="message" placeholder="Tell us about your project..." required></textarea>
         <input type="text" name="_gotcha" style="display:none">
-    
         <button type="submit">Send Message</button>
-    </form>
+      </form>
+    </div>
 
-
+  </div>
 </section>
 
-<footer>
-<p>© 2025 ALLCON – Georgia</p>
+<footer class="ac-footer">
+  <div class="ac-footer-brand">ALLCON</div>
+  <div class="ac-footer-links">
+    <a href="septic.html">Septic</a>
+    <a href="grading.html">Grading</a>
+    <a href="mx.html">MX Tracks</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="ac-footer-copy">© 2026 ALLCON – Gainesville, GA</div>
 </footer>
 
 </body>
