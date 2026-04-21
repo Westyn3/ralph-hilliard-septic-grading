@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trusted Partners & Vendors | ALLCON | Gainesville, GA</title>
+  <meta name="description" content="ALLCON's trusted network of local professionals in North Georgia — real estate, roofing, plumbing, electrical, flooring, fencing, tree services, and more." />
+  <meta name="keywords" content="trusted vendors North Georgia, local contractors Gainesville GA, North Atlanta real estate, ALLCON partners, North Georgia home services" />
+  <link rel="canonical" href="https://allconga.com/vendors.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://allconga.com/vendors.html" />
+  <meta property="og:title" content="Trusted Partners & Vendors | ALLCON" />
+  <meta property="og:description" content="ALLCON's trusted network of local professionals across North Georgia." />
+  <meta property="og:image" content="https://allconga.com/images/ALLCON.png" />
+  <meta property="og:site_name" content="ALLCON — Gainesville, GA" />
+  <link rel="icon" href="/images/ALLCON.png" />
+  <link rel="stylesheet" href="css/style.css" />
+ 
+  <style>
+    /* ── VENDOR PAGE SPECIFIC STYLES ── */
+    .ac-vendors-section {
+      background: #0f0f0f;
+      padding: 72px 40px;
+    }
+ 
+    .ac-vendors-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+ 
+    .ac-vendor-category {
+      margin-bottom: 64px;
+    }
+ 
+    .ac-vendor-category-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #C0392B;
+      margin-bottom: 4px;
+    }
+ 
+    .ac-vendor-category-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      letter-spacing: 3px;
+      color: #fff;
+      margin: 0 0 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #222;
+    }
+ 
+    .ac-vendor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2px;
+    }
+ 
+    .ac-vendor-card {
+      background: #161616;
+      border-top: 3px solid #333;
+      padding: 32px;
+      transition: all 0.2s;
+    }
+ 
+    .ac-vendor-card:hover {
+      background: #1e1e1e;
+      transform: translateY(-3px);
+    }
+ 
+    .ac-vendor-card.featured {
+      border-top: 3px solid #C0392B;
+    }
+ 
+    .ac-vendor-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: #C0392B;
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 2px;
+      margin-bottom: 12px;
+    }
+ 
+    .ac-vendor-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      letter-spacing: 2px;
+      color: #fff;
+      margin: 0 0 4px;
+    }
+ 
+    .ac-vendor-contact {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #C0392B;
+      margin-bottom: 16px;
+    }
+ 
+    .ac-vendor-desc {
+      font-size: 14px;
+      color: #888;
+      line-height: 1.75;
+      margin-bottom: 24px;
+      border-bottom: 1px solid #222;
+      padding-bottom: 20px;
+    }
+ 
+    .ac-vendor-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+ 
+    .ac-vendor-btn-phone {
+      display: inline-block;
+      background: #C0392B;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 3px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 2px solid #C0392B;
+      transition: all 0.2s;
+    }
+ 
+    .ac-vendor-btn-phone:hover {
+      background: transparent;
+      color: #C0392B;
+    }
+ 
+    .ac-vendor-btn-web {
+      display: inline-block;
+      background: transparent;
+      color: #aaa;
+      padding: 10px 20px;
+      border-radius: 3px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 2px solid #333;
+      transition: all 0.2s;
+    }
+ 
+    .ac-vendor-btn-web:hover {
+      border-color: #fff;
+      color: #fff;
+    }
+ 
+    .ac-vendor-note {
+      background: #111;
+      border-left: 3px solid #C0392B;
+      padding: 24px 28px;
+      margin-top: 48px;
+    }
+ 
+    .ac-vendor-note p {
+      font-size: 14px;
+      color: #888;
+      line-height: 1.8;
+    }
+ 
+    .ac-vendor-note strong {
+      color: #fff;
+    }
+ 
+    @media (max-width: 768px) {
+      .ac-vendors-section {
+        padding: 48px 20px;
+      }
+      .ac-vendor-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+ 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Trusted Partners & Vendors — ALLCON",
+    "url": "https://allconga.com/vendors.html",
+    "description": "ALLCON's trusted network of local professionals across North Georgia including real estate, roofing, plumbing, electrical, flooring, fencing, and tree services.",
+    "publisher": {
+      "@type": "LocalBusiness",
+      "name": "ALLCON",
+      "url": "https://allconga.com",
+      "telephone": "+16784100310"
+    },
+    "mentions": [
+      {
+        "@type": "RealEstateAgent",
+        "name": "Karen Hilliard – North Georgia Luxury Realtor",
+        "url": "https://northgaluxuryrealtor.com",
+        "telephone": "+17703160788"
+      },
+      {
+        "@type": "RealEstateAgent",
+        "name": "Britney Javens – North Atlanta Realtor",
+        "url": "https://northatlantarealtor.homes",
+        "telephone": "+17703160788"
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Onward Mortgage",
+        "url": "https://www.onwardhomemortgage.com/",
+        "telephone": "+17702981198"
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Homeowners Financial Group",
+        "url": "https://homeownersfg.com/location/atlanta-central/",
+        "telephone": "+17708856060"
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "1st Response Roofing",
+        "url": "https://www.1stresponseroofco.com/",
+        "telephone": "+16786026641"
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Aquaworks Plumbing",
+        "url": "https://aquaworksservice.com/",
+        "telephone": "+17707188799"
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Jerious Norwood Fencing",
+        "url": "https://norwoodfence.com/",
+        "telephone": "+16788378342"
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Mr. Hardwood",
+        "url": "https://mrhardwoodinc.com/",
+        "telephone": "+16782175800"
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Marcelo LS Trees",
+        "url": "https://lstreesllc.com/",
+        "telephone": "+17706166079"
+      }
+    ]
+  }
+  </script>
+</head>
+ 
+<body class="ac-body">
+ 
+  <!-- ── NAVBAR ── -->
+  <div class="ac-nav">
+    <div class="ac-nav-logo">
+      <a href="/index.html">
+        <img src="images/ALLCON.png" alt="ALLCON Logo" class="logo-img" />
+      </a>
+    </div>
+    <div class="ac-nav-links">
+      <a href="/index.html">Home</a>
+      <div class="dropdown">
+        <a href="/services.html">Services ▾</a>
+        <div class="dropdown-content">
+          <a href="/septic.html">Septic Installation</a>
+          <a href="/grading.html">Grading, Land Clearing, & Drain Systems</a>
+          <a href="/mx.html">MX Track Building</a>
+        </div>
+      </div>
+      <a href="/vendors.html" style="color:#fff;">Vendors</a>
+      <a href="/contact.html" class="ac-nav-cta">Contact</a>
+    </div>
+  </div>
+ 
+  <!-- ── PAGE HEADER ── -->
+  <div class="ac-page-header">
+    <div class="ac-page-header-inner">
+      <div class="ac-section-label">North Georgia Network</div>
+      <h1 class="ac-page-title">Trusted Partners & Vendors</h1>
+      <p class="ac-page-sub">Over 35 years working across North Georgia, we've built relationships with the best local professionals in the business. These are the people we trust — and the ones we send our own clients to.</p>
+    </div>
+  </div>
+ 
+  <!-- ── VENDOR SECTIONS ── -->
+  <div class="ac-vendors-section">
+    <div class="ac-vendors-inner">
+ 
+      <!-- REAL ESTATE -->
+      <div class="ac-vendor-category">
+        <div class="ac-vendor-category-label">Real Estate</div>
+        <div class="ac-vendor-category-title">The Legacy Team — Keller Williams North Atlanta</div>
+        <div class="ac-vendor-grid">
+ 
+          <div class="ac-vendor-card featured">
+            <div class="ac-vendor-badge">Luxury Specialist</div>
+            <div class="ac-vendor-name">Karen Hilliard</div>
+            <div class="ac-vendor-contact">Keller Williams North Atlanta</div>
+            <div class="ac-vendor-desc">Luxury Realtor specializing in luxury homes, Lake Lanier waterfront properties, and North Georgia mountain real estate. Karen brings a background in construction management and land development — a rare strategic edge in real estate.</div>
+            <div class="ac-vendor-actions">
+              <a class="ac-vendor-btn-phone" href="tel:7703160788">Call Karen</a>
+              <a class="ac-vendor-btn-web" href="https://northgaluxuryrealtor.com" target="_blank" rel="noopener">Visit Website</a>
+            </div>
+          </div>
+ 
+          <div class="ac-vendor-card featured">
+            <div class="ac-vendor-badge">North Atlanta</div>
+            <div class="ac-vendor-name">Britney Javens</div>
+            <div class="ac-vendor-contact">Keller Williams North Atlanta</div>
+            <div class="ac-vendor-desc">Licensed Realtor helping buyers and sellers across Metro Atlanta and North Georgia. Britney brings local market knowledge, digital marketing expertise, and a personal touch to every transaction.</div>
+            <div class="ac-vendor-actions">
+              <a class="ac-vendor-btn-phone" href="tel:7703160788">Call Britney</a>
+              <a class="ac-vendor-btn-web" href="https://northatlantarealtor.homes" target="_blank" rel="noopener">Visit Website</a>
+            </div>
+          </div>
+ 
+        </div>
+      </div>
+ 
+      <!-- MORTGAGE & LENDING -->
+      <div class="ac-vendor-category">
+        <div class="ac-vendor-category-label">Mortgage & Lending</div>
+        <div class="ac-vendor-category-title">Home Financing</div>
+        <div class="ac-vendor-grid">
+ 
+          <div class="ac-vendor-card">
+            <div class="ac-vendor-name">Onward Mortgage</div>
+            <div class="ac-vendor-contact">Thomas Cady</div>
+            <div class="ac-vendor-desc">Personalized home loan solutions for first-time buyers, move-up buyers, and investors across North Atlanta. Thomas makes the financing process straightforward and stress-free.</div>
+            <div class="ac-vendor-actions">
+              <a class="ac-vendor-btn-phone" href="tel:7702981198">(770) 298-1198</a>
+              <a class="ac-vendor-btn-web" href="https://www.onwardhomemortgage.com/" target="_blank" rel="noopener">Website</a>
+            </div>
+          </div>
+ 
+          <div class="ac-vendor-card">
+            <div class="ac-vendor-name">Homeowners Financial Group</div>
+            <div class="ac-vendor-contact">Matt Quagliana</div>
+            <div class="ac-vendor-desc">Trusted mortgage professional known for his responsiveness and clear communication throughout the loan process. Matt matches buyers with the best financing options available.</div>
+            <div class="ac-vendor-actions">
+              <a class="ac-vendor-btn-phone" href="tel:7708856060">(770) 885-6060</a>
+              <a class="ac-vendor-btn-web" href="https://homeownersfg.com/location/atlanta-central/" target="_blank" rel="noopener">Website</a>
+            </div>
+          </div>
+ 
+        </div>
+      </div>
+ 
+      <!-- HOME SERVICES -->
+      <div class="ac-vendor-category">
+        <div class="ac-vendor-category-label">Home Services</div>
+        <div class="ac-vendor-category-title">Roofing, Electrical, Plumbing & More</div>
+        <div class="ac-vendor-grid">
+ 
+          <div class="ac-vendor-card">
+            <div class="ac-vendor-name">1st Response Roofing</div>
+            <div class="ac-vendor-contact">Cody Hall</div>
+            <div class="ac-vendor-desc">Fast, honest roofing from inspections and repairs to full replacements. A must-call before or after any real estate transaction in North Atlanta.</div>
+            <div class="ac-vendor-actions">
+              <a class="ac-vendor-btn-phone" href="tel:6786026641">(678) 602-6641</a>
+              <a class="ac-vendor-btn-web" href="https://www.1stresponseroofco.com/" target="_blank" rel="noopener">Website</a>
+            </div>
+          </div>
+ 
+          <div class="ac-vendor-card">
+            <div class="ac-vendor-name">Jeff — Licensed Electrician</div>
+            <div class="ac-vendor-contact">North Atlanta</div>
+            <div class="ac-vendor-desc">Reliable electrician for everything from pre-listing repairs to full rewiring. Gets the job done right the first time, every time.</div>
+            <div class="ac-vendor-actions">
+              <a class="ac-vendor-btn-phone" href="tel:6782517767">(678) 251-7767</a>
+            </div>
+          </div>
+ 
+          <div class="ac-vendor-card">
+            <div class="ac-vendor-name">Aquaworks Plumbing</div>
+            <div class="ac-vendor-contact">Jesse Adkins</div>
+            <div class="ac-vendor-desc">Professional plumbing for routine repairs to complex installations. Prompt, dependable, and one of the most trusted tradespeople in North Atlanta.</div>
+            <div class="ac-vendor-actions">
+              <a class="ac-vendor-btn-phone" href="tel:7707188799">(770) 718-8799</a>
+              <a class="ac-vendor-btn-web" href="https://aquaworksservice.com/" target="_blank" rel="noopener">Website</a>
+            </div>
+          </div>
+ 
+          <div class="ac-vendor-card">
+            <div class="ac-vendor-name">Armando — Handyman & Contractor</div>
+            <div class="ac-vendor-contact">North Atlanta</div>
+            <div class="ac-vendor-desc">No job too big or small. From pre-listing punch lists to full renovation projects — skilled, reliable, and one of our most-referred vendors.</div>
+            <div class="ac-vendor-actions">
+              <a class="ac-vendor-btn-phone" href="tel:4049353224">(404) 935-3224</a>
+            </div>
+          </div>
+ 
+          <div class="ac-vendor-card">
+            <div class="ac-vendor-name">Jerious Norwood Fencing</div>
+            <div class="ac-vendor-contact">North Atlanta</div>
+            <div class="ac-vendor-desc">Quality fencing with a personal touch — privacy, security, and decorative options. Gets it done right and on time.</div>
+            <div class="ac-vendor-actions">
+              <a class="ac-vendor-btn-phone" href="tel:6788378342">(678) 837-8342</a>
+              <a class="ac-vendor-btn-web" href="https://norwoodfence.com/" target="_blank" rel="noopener">Website</a>
+            </div>
+          </div>
+ 
+          <div class="ac-vendor-card">
+            <div class="ac-vendor-name">Mr. Hardwood</div>
+            <div class="ac-vendor-contact">North Atlanta</div>
+            <div class="ac-vendor-desc">Hardwood flooring specialists for installation, refinishing, and repair. Beautiful floors that add real value — a difference buyers and sellers both notice.</div>
+            <div class="ac-vendor-actions">
+              <a class="ac-vendor-btn-phone" href="tel:6782175800">(678) 217-5800</a>
+              <a class="ac-vendor-btn-web" href="https://mrhardwoodinc.com/" target="_blank" rel="noopener">Website</a>
+            </div>
+          </div>
+ 
+        </div>
+      </div>
+ 
+      <!-- LAND & OUTDOOR -->
+      <div class="ac-vendor-category">
+        <div class="ac-vendor-category-label">Land & Outdoor</div>
+        <div class="ac-vendor-category-title">Tree Services</div>
+        <div class="ac-vendor-grid">
+ 
+          <div class="ac-vendor-card">
+            <div class="ac-vendor-name">Marcelo LS Trees</div>
+            <div class="ac-vendor-contact">North Atlanta</div>
+            <div class="ac-vendor-desc">Professional tree removal, trimming, stump grinding, and land clearing. Careful with your property and efficient on the job.</div>
+            <div class="ac-vendor-actions">
+              <a class="ac-vendor-btn-phone" href="tel:7706166079">(770) 616-6079</a>
+              <a class="ac-vendor-btn-web" href="https://lstreesllc.com/" target="_blank" rel="noopener">Website</a>
+            </div>
+          </div>
+ 
+        </div>
+      </div>
+ 
+      <!-- NOTE FROM RALPH -->
+      <div class="ac-vendor-note">
+        <p><strong>A note from Ralph:</strong> Every vendor on this page is someone I've personally worked with or referred to clients over the years. I only recommend people I trust with my own projects. That said, always do your own due diligence and get multiple quotes when it makes sense. Questions about any of these vendors? Give me a call — <a href="tel:6784100310" style="color:#C0392B; font-weight:700;">(678) 410-0310</a>.</p>
+      </div>
+ 
+    </div>
+  </div>
+ 
+  <!-- ── CTA STRIP ── -->
+  <div class="ac-cta">
+    <div class="ac-cta-accent"></div>
+    <div class="ac-section-label">Get Started</div>
+    <div class="ac-cta-title">Ready to Start Your Project?</div>
+    <p class="ac-cta-sub">Call or message Ralph today for a free estimate.</p>
+    <a href="/contact.html" class="ac-cta-btn">Get a Free Quote</a>
+    <a href="tel:6784100310" class="ac-cta-btn2">(678) 410-0310</a>
+  </div>
+ 
+  <!-- ── FOOTER ── -->
+  <div class="ac-footer">
+    <div class="ac-footer-brand">ALLCON</div>
+    <div class="ac-footer-links">
+      <a href="/septic.html">Septic</a>
+      <a href="/grading.html">Grading</a>
+      <a href="/mx.html">MX Tracks</a>
+      <a href="/vendors.html">Vendors</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <div class="ac-footer-social">
+      <a href="https://www.instagram.com/ralphhilliard3/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/ralph.hilliard.1" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div class="ac-footer-copy">&copy; 2026 ALLCON – Gainesville, GA</div>
+  </div>
+ 
+</body>
+</html>
+ 
