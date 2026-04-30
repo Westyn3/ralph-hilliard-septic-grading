@@ -1493,6 +1493,21 @@ footer {
 }
 
 /* ------------------------------
+   CONTENT SECTION
+--------------------------------*/
+.ac-content-section {
+    background: #111;
+    padding: 72px 40px;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+}
+
+.ac-content-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ------------------------------
    PAGE HERO — VIDEO BACKGROUND
 --------------------------------*/
 .ac-page-hero {
