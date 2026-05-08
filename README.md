@@ -27,13 +27,13 @@ This is a static, multi-page marketing website built with HTML and CSS. It is de
 
 ## Services Covered
 
-** Septic Installation**
+**Septic Installation**
 New systems, drain fields, inspections, repairs, and grease traps — residential and commercial.
 
-** Grading, Land Clearing & Drain Systems**
+**Grading, Land Clearing & Drain Systems**
 Driveways, building pads, land clearing, dirt work, underground stormwater retention, and drain systems.
 
-** MX Track Building**
+**MX Track Building**
 Backyard practice tracks, competition-level layouts, jump building, track reshaping, and drainage shaping. Travels across the Southeast.
 
 -----
