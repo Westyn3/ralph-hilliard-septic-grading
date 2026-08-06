@@ -766,6 +766,36 @@ footer {
     color: #C0392B;
 }
 
+.ac-hero-btn2 {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.25);
+    color: #fff;
+    padding: 16px 40px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 2px solid #fff;
+    transition: all 0.2s;
+    margin-left: 12px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Hover only where a real pointer exists — stops iOS eating the first tap */
+@media (hover: hover) and (pointer: fine) {
+    .ac-hero-btn2:hover {
+        background: #fff;
+        color: #111;
+    }
+}
+
+/* Tap feedback on touch devices */
+.ac-hero-btn2:active {
+    background: #fff;
+    color: #111;
+}
 /* ------------------------------
    STATS BAR
 --------------------------------*/
@@ -943,6 +973,16 @@ footer {
     background: transparent;
     color: #C0392B;
 }
+
+.ac-hero-btn,
+    .ac-hero-btn2 {
+        display: block;
+        width: 100%;
+        max-width: 280px;
+        margin: 10px auto 0;
+        padding: 16px 24px;
+        text-align: center;
+    }
 
 .ac-cta-btn2 {
     display: inline-block;
