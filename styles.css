@@ -974,16 +974,6 @@ footer {
     color: #C0392B;
 }
 
-.ac-hero-btn,
-    .ac-hero-btn2 {
-        display: block;
-        width: 100%;
-        max-width: 280px;
-        margin: 10px auto 0;
-        padding: 16px 24px;
-        text-align: center;
-    }
-
 .ac-cta-btn2 {
     display: inline-block;
     background: transparent;
@@ -1092,10 +1082,16 @@ footer {
         text-align: center;
     }
 
-    .ac-cta-btn, .ac-cta-btn2 {
+    .ac-hero-btn,
+    .ac-hero-btn2,
+    .ac-cta-btn,
+    .ac-cta-btn2 {
         display: block;
-        margin: 8px auto;
-        max-width: 260px;
+        width: 100%;
+        max-width: 280px;
+        margin: 10px auto 0;
+        padding: 16px 24px;
+        text-align: center;
     }
 }
 
