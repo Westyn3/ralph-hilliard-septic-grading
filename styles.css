@@ -1628,3 +1628,7 @@ footer {
 .ac-footer-social a:hover {
     color: #C0392B;
 }
+
+.ac-service-text .ac-service-heading {
+    text-align: center;
+}
