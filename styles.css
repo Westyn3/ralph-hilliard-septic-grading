@@ -1035,6 +1035,25 @@ footer {
     color: #444;
 }
 
+.ac-footer-credit {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #666;
+  margin-top: 8px;
+}
+.ac-footer-credit a {
+  color: #888;
+  text-decoration: none;
+  border-bottom: 1px solid #333;
+  transition: all 0.2s;
+}
+.ac-footer-credit a:hover {
+  color: #C0392B;
+  border-color: #C0392B;
+}
+
 /* ------------------------------
    MOBILE — NEW STYLES
 --------------------------------*/
