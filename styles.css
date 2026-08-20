@@ -1647,3 +1647,406 @@ footer {
 .ac-service-text .ac-service-heading {
     text-align: center;
 }
+
+
+/* ==========================================================
+   HOMEPAGE REFRESH (2026-08) — merged from motion.css
+   Must stay at the END of this file: it overrides earlier rules by order.
+   Every selector matches a hook that exists in index.html:
+     .ac-burger / body.ac-menu-open / .dropdown.open   (mobile nav)
+     .ac-rise + --d                                    (hero load sequence)
+     .ac-reveal.in + --i                               (scroll reveals)
+     .ac-nav.scrolled                                  (sticky nav)
+     .ac-hero-poster / .ac-hero.ac-video-off           (video fallback)
+     .ac-ticker / .ac-ticker-track                     (town marquee)
+     .ac-callbar                                       (mobile call bar)
+     .ac-scroll-cue
+   ========================================================== */
+
+:root {
+    --ac-red: #C0392B;
+    --ac-red-dark: #a93226;
+    --ac-ease: cubic-bezier(.22,.61,.36,1);
+    --ac-nav-h: 64px;
+}
+
+html { scroll-behavior: smooth; }
+.ac-body { overflow-x: hidden; }
+
+/* ---------- NAV: sticky, solidifies on scroll ---------- */
+.ac-home .ac-nav {
+    position: sticky;
+    top: 0;
+    min-height: var(--ac-nav-h);
+    transition: padding .25s var(--ac-ease), background .25s;
+}
+.ac-home .ac-nav.scrolled {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background: rgba(0,0,0,.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+.ac-nav-phone {
+    color: #fff !important;
+    font-weight: 700 !important;
+    white-space: nowrap;
+}
+.ac-caret { font-size: 11px; margin-left: 2px; opacity: .7; }
+
+/* burger — hidden on desktop */
+.ac-burger {
+    display: none;
+    background: none;
+    border: 0;
+    width: 44px; height: 44px;
+    padding: 10px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+.ac-burger span {
+    display: block;
+    height: 2px;
+    background: #fff;
+    margin: 5px 0;
+    transition: transform .3s var(--ac-ease), opacity .2s;
+}
+.ac-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ac-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.ac-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ---------- HERO ---------- */
+.ac-hero {
+    height: auto;
+    min-height: 80vh;
+    background: #0a0a0a;
+}
+
+/* Poster layer sits UNDER the video. If the video can't play (iOS Low Power
+   Mode, Data Saver, slow cell), we hide the <video> entirely so iOS has
+   nothing to draw its play badge on, and this layer shows instead. */
+.ac-hero-poster {
+    position: absolute;
+    inset: 0;
+    background: #0a0a0a url("images/hero-poster.jpg") center / cover no-repeat;
+    z-index: 0;
+}
+@media (max-width: 768px) {
+    .ac-hero-poster { background-image: url("images/hero-poster-mobile.jpg"); }
+}
+.ac-hero video {
+    z-index: 1;
+    pointer-events: none;
+    background: transparent;
+}
+.ac-hero.ac-video-off video { display: none !important; }
+
+/* Slow drift — desktop / mouse devices only. Transforming a <video> on
+   iOS is one of the things that makes it fall back to the poster+badge. */
+@media (hover: hover) and (pointer: fine) and (min-width: 901px) {
+    .ac-hero video {
+        animation: ac-drift 28s ease-in-out infinite alternate;
+        transform-origin: center;
+        will-change: transform;
+    }
+}
+
+/* overlay sits in normal flow so the hero grows with its text instead of clipping */
+.ac-hero-overlay {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    min-height: 80vh;
+    background: rgba(0, 0, 0, 0.60);   /* same flat overlay as the service pages */
+}
+/* Match the service-page hero: eyebrow label, 80px Bebas title, 15px sub */
+.ac-hero-content {
+    max-width: 900px;
+    padding: 80px 40px 72px;
+}
+.ac-hero-sub {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    color: #C0392B;
+    margin: 0 0 14px;
+}
+.ac-hero-h1 {
+    font-size: 80px;
+    letter-spacing: 4px;
+    line-height: 1.1;
+    margin: 0 0 20px;
+    max-width: none;
+}
+.ac-hero-h1 .ac-line { display: block; overflow: hidden; }
+.ac-hero-h1 .ac-red { color: var(--ac-red); }
+.ac-hero-lede {
+    max-width: 900px;
+    margin: 0 auto 32px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #ccc;
+}
+.ac-hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.ac-hero-btn, .ac-hero-btn2 { padding: 17px 38px; font-size: 13px; }
+
+/* load sequence: every .ac-rise rises in, staggered by --d */
+.ac-rise {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(22px);
+    animation: ac-rise .8s var(--ac-ease) forwards;
+    animation-delay: calc(.15s + var(--d, 0) * .12s);
+}
+p.ac-rise, div.ac-rise { display: block; }
+
+/* scroll cue */
+.ac-scroll-cue {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    width: 1px;
+    height: 44px;
+    background: linear-gradient(to bottom, var(--ac-red), transparent);
+    transform: translateX(-50%);
+    z-index: 4;
+    animation: ac-cue 2.2s ease-in-out infinite;
+}
+
+/* ---------- TOWN TICKER ---------- */
+.ac-ticker {
+    overflow: hidden;
+    background: #000;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 12px 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.ac-ticker-track {
+    display: flex;
+    width: max-content;
+    animation: ac-ticker 60s linear infinite;
+}
+.ac-ticker-track span {
+    font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #777;
+    padding: 0 22px;
+    white-space: nowrap;
+}
+.ac-ticker-track span::after {
+    content: '•';
+    color: var(--ac-red);
+    margin-left: 44px;
+}
+.ac-ticker:hover .ac-ticker-track { animation-play-state: paused; }
+
+/* ---------- STATS: slimmer, counts up on scroll ---------- */
+.ac-stats {
+    padding: 28px 24px;
+    background: linear-gradient(90deg, var(--ac-red-dark), var(--ac-red) 50%, var(--ac-red-dark));
+}
+.ac-stat { padding: 0 44px; }
+.ac-stat-num { font-size: 44px; font-variant-numeric: tabular-nums; }
+.ac-stat-label { letter-spacing: 1.5px; }
+
+/* ---------- SCROLL REVEALS (.ac-reveal -> .in) ---------- */
+.ac-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .8s var(--ac-ease), transform .8s var(--ac-ease);
+    transition-delay: calc(var(--i, 0) * .1s);
+}
+.ac-reveal.in { opacity: 1; transform: none; }
+/* links styled as cards still need to look like cards */
+a.ac-card { display: block; color: inherit; text-decoration: none; }
+
+.ac-cards {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    max-width: 1100px;
+}
+.ac-card { position: relative; overflow: hidden; }
+.ac-card-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ac-red);
+    border: 1px solid var(--ac-red);
+    padding: 3px 8px;
+    margin-bottom: 14px;
+}
+.ac-card::after {
+    content: '';
+    position: absolute;
+    left: 0; top: -3px;
+    width: 100%; height: 3px;
+    background: #fff;
+    transform: translateX(-101%);
+    transition: transform .45s var(--ac-ease);
+}
+.ac-card:hover::after { transform: translateX(0); }
+.ac-card-link i { font-style: normal; display: inline-block; transition: transform .25s var(--ac-ease); }
+.ac-card:hover .ac-card-link i { transform: translateX(4px); }
+
+/* ---------- SERVICE AREA ---------- */
+.ac-area { background: #0f0f0f; padding: 72px 40px; }
+.ac-area-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 56px;
+    align-items: start;
+}
+.ac-area-text p { font-size: 16px; line-height: 1.75; color: #999; }
+.ac-section-label.ac-left, .ac-section-title.ac-left { text-align: left; }
+.ac-area-list {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: #1c1c1c;
+    border: 1px solid #1c1c1c;
+}
+.ac-area-list li {
+    background: #0a0a0a;
+    padding: 12px 16px;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #bbb;
+}
+.ac-area-list li::before { content: '•'; color: var(--ac-red); margin-right: 8px; }
+
+.ac-section-title { font-size: clamp(36px, 5vw, 56px); }
+.ac-cta-title      { font-size: clamp(36px, 5vw, 56px); }
+
+/* ---------- STICKY MOBILE CALL BAR ---------- */
+.ac-callbar { display: none; }
+
+/* focus visible for keyboard users */
+a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--ac-red);
+    outline-offset: 3px;
+}
+
+/* ---------- KEYFRAMES ---------- */
+@keyframes ac-rise   { to { opacity: 1; transform: none; } }
+@keyframes ac-drift  { from { transform: scale(1.02); } to { transform: scale(1.10) translate(-1.5%, 1%); } }
+@keyframes ac-ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes ac-cue    { 0%,100% { opacity: .25; transform: translateX(-50%) scaleY(.6); transform-origin: top; } 50% { opacity: 1; transform: translateX(-50%) scaleY(1); } }
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 900px) {
+    .ac-home .ac-nav {
+        flex-direction: row;          /* undo styles.css column layout */
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
+        padding: 12px 18px;
+    }
+    .ac-home .logo-img { height: 34px; width: auto; }
+    .ac-burger { display: block; }
+
+    /* drawer: hidden until body.ac-menu-open */
+    .ac-home .ac-nav-links {
+        position: fixed;
+        top: var(--ac-nav-h); left: 0; right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: #0a0a0a;
+        border-bottom: 2px solid var(--ac-red);
+        padding: 8px 0 16px;
+        max-height: calc(100dvh - var(--ac-nav-h));
+        overflow-y: auto;
+        transform: translateY(-12px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .25s, transform .3s var(--ac-ease);
+        z-index: 9998;
+    }
+    body.ac-menu-open .ac-nav-links {
+        transform: none;
+        opacity: 1;
+        pointer-events: auto;
+    }
+    body.ac-menu-open { overflow: hidden; }
+
+    .ac-home .ac-nav-links > a,
+    .ac-home .ac-nav-links .dropbtn {
+        display: block;
+        padding: 14px 22px;
+        font-size: 15px;
+        border-bottom: 1px solid #1c1c1c;
+    }
+    .ac-home .ac-nav-cta { margin: 12px 22px 0; text-align: center; border-radius: 3px; }
+    .ac-nav-phone { text-align: center; font-size: 17px !important; }
+
+    /* Services submenu: collapsed until .dropdown.open (set by JS) */
+    .ac-home .dropdown { position: static; }
+    .ac-home .dropdown-content {
+        display: none;
+        position: static;
+        box-shadow: none;
+        border-radius: 0;
+        min-width: 0;
+        background: #111;
+    }
+    .ac-home .dropdown.open .dropdown-content { display: block; }
+    .ac-home .dropdown-content a { display: block; padding: 12px 22px 12px 38px; font-size: 14px; color: #aaa; }
+
+    .ac-hero, .ac-hero-overlay { min-height: 55vh; }
+    .ac-hero-content { padding: 56px 20px 48px; }
+    .ac-hero-h1 { font-size: 36px; letter-spacing: 2px; }
+    .ac-hero-lede { font-size: 13px; margin: 0 auto 24px; }
+    .ac-hero-btn, .ac-hero-btn2 { max-width: 320px; }
+    .ac-scroll-cue { display: none; }
+
+    .ac-stats { gap: 18px 0; padding: 22px 12px; }
+    .ac-stat { width: 50%; padding: 6px 8px; }
+    .ac-stat-num { font-size: 38px; }
+    .ac-stat-label { font-size: 10px; }
+
+    .ac-area { padding: 56px 20px; }
+    .ac-area-inner { grid-template-columns: 1fr; gap: 32px; }
+
+    .ac-services, .ac-reviews, .ac-cta { padding: 56px 20px; }
+    .ac-section-title { margin-bottom: 32px; }
+    .ac-card { padding: 30px 24px; }
+
+    /* sticky call bar */
+    .ac-callbar {
+        display: block;
+        position: fixed;
+        left: 0; right: 0; bottom: 0;
+        z-index: 9997;
+        background: var(--ac-red);
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 15px 16px calc(15px + env(safe-area-inset-bottom));
+        box-shadow: 0 -4px 16px rgba(0,0,0,.4);
+    }
+    .ac-home { padding-bottom: 56px; }   /* keep footer clear of the bar */
+}
+
+/* ---------- REDUCED MOTION ---------- */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .ac-hero video { animation: none; }
+    .ac-rise { animation: none; opacity: 1; transform: none; }
+    .ac-reveal { opacity: 1; transform: none; transition: none; }
+    .ac-ticker-track { animation: none; }
+    .ac-scroll-cue { display: none; }
+}
