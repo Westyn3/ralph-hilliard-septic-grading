@@ -15,9 +15,9 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://allconga.com/">
 <title>Septic Repair & Installation in Dawsonville, Cumming & Gainesville GA | 240+ 5-Star Reviews | ALLCON</title>
-<link rel="preload" as="image" href="images/hero-poster.jpg">
+<link rel="preload" as="image" href="images/hero-poster.jpg" media="(min-width: 769px)">
+<link rel="preload" as="image" href="images/hero-poster-mobile.jpg" media="(max-width: 768px)">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="motion.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600&display=swap" media="print" onload="this.media='all'">
@@ -114,7 +114,7 @@
 </script>
 </head>
 
-<body class="ac-body">
+<body class="ac-body ac-home">
 
 <header class="ac-nav" id="top">
   <div class="ac-nav-logo">
@@ -152,11 +152,11 @@
 
 <section class="ac-hero" id="acHero">
   <!-- muted MUST be an attribute, not just a JS property, or iOS will refuse autoplay and show a play button -->
-  <video class="hero-video desktop-video" autoplay muted loop playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="metadata" poster="images/hero-poster.jpg" aria-hidden="true" tabindex="-1">
-    <source src="images/hero-video.mp4" type="video/mp4">
+  <video class="hero-video desktop-video" autoplay muted loop playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="auto" poster="images/hero-poster.jpg" aria-hidden="true" tabindex="-1">
+    <source src="images/hero-video.web.mp4" type="video/mp4">
   </video>
-  <video class="hero-video mobile-video" autoplay muted loop playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="metadata" poster="images/hero-poster.jpg" aria-hidden="true" tabindex="-1">
-    <source src="images/hero-video2.mp4" type="video/mp4">
+  <video class="hero-video mobile-video" autoplay muted loop playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="auto" poster="images/hero-poster-mobile.jpg" aria-hidden="true" tabindex="-1">
+    <source src="images/hero-video2.web.mp4" type="video/mp4">
   </video>
   <div class="ac-hero-poster" aria-hidden="true"></div>
 
@@ -256,14 +256,14 @@
 </section>
 
 <!-- Google Reviews Section -->
-<section class="ac-reviews" data-reveal>
+<section class="ac-reviews">
   <p class="ac-section-label ac-reveal">What Clients Say</p>
   <h2 class="ac-section-title ac-reveal">249 five-star Google reviews</h2>
   <script src="https://elfsightcdn.com/platform.js" async defer></script>
   <div class="elfsight-app-742b4d1c-5b5f-48ad-ba96-c57478f3fa58" data-elfsight-app-lazy></div>
 </section>
 
-<section class="ac-cta" data-reveal>
+<section class="ac-cta">
   <div class="ac-cta-accent"></div>
   <h2 class="ac-cta-title ac-reveal">Septic trouble or a lot to grade?</h2>
   <p class="ac-cta-sub ac-reveal">Call or message Ralph today for a free on-site estimate.</p>
@@ -327,11 +327,17 @@
   var vids = hero.querySelectorAll('video');
   function tryPlay(){
     vids.forEach(function(v){
-      v.muted = true; v.defaultMuted = true;
+      if (getComputedStyle(v).display === 'none') { v.pause(); return; }
+      v.muted = true; v.defaultMuted = true; v.setAttribute('muted','');
       var p = v.play();
       if (p && p.catch) p.catch(function(){ hero.classList.add('ac-video-off'); });
     });
   }
+  // If the browser stalls (slow cell) show the poster instead of a frozen first frame
+  vids.forEach(function(v){
+    v.addEventListener('error', function(){ hero.classList.add('ac-video-off'); });
+    v.addEventListener('playing', function(){ hero.classList.remove('ac-video-off'); });
+  });
   tryPlay();
   // Retry once on first user gesture (covers Low Power Mode when the user taps)
   var retried = false;
@@ -347,7 +353,7 @@
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function(entries){
       entries.forEach(function(en){
-        vids.forEach(function(v){ en.isIntersecting ? v.play().catch(function(){}) : v.pause(); });
+        en.isIntersecting ? tryPlay() : vids.forEach(function(v){ v.pause(); });
       });
     }, {threshold: 0.1}).observe(hero);
   }
@@ -392,76 +398,5 @@
 })();
 </script>
 
-<script>
-(function () {
-  /* --- hero video: force autoplay, kill the iOS play badge --- */
-  var vids = document.querySelectorAll('.ac-hero video');
-  function tryPlay() {
-    vids.forEach(function (v) {
-      if (getComputedStyle(v).display === 'none') return;
-      v.muted = true; v.defaultMuted = true; v.setAttribute('muted', '');
-      var p = v.play();
-      if (p && p.catch) p.catch(function () { v.classList.add('is-blocked'); });
-    });
-  }
-  tryPlay();
-  ['touchstart', 'click', 'scroll'].forEach(function (ev) {
-    window.addEventListener(ev, function once() { tryPlay(); window.removeEventListener(ev, once); }, { passive: true });
-  });
-  document.addEventListener('visibilitychange', function () { if (!document.hidden) tryPlay(); });
-
-  /* --- sticky nav + mobile drawer --- */
-  var nav = document.querySelector('.ac-nav');
-  var toggle = document.querySelector('.ac-nav-toggle');
-  var links = document.getElementById('ac-nav-links');
-  window.addEventListener('scroll', function () {
-    nav.classList.toggle('is-scrolled', window.scrollY > 40);
-  }, { passive: true });
-  if (toggle) {
-    toggle.addEventListener('click', function () {
-      var open = links.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', open);
-      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    });
-    links.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        links.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-  }
-
-  /* --- scroll reveal --- */
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if ('IntersectionObserver' in window && !reduce) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
-  } else {
-    document.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('is-in'); });
-  }
-
-  /* --- stat count-up --- */
-  function countUp(el) {
-    var end = +el.dataset.count, suf = el.dataset.suffix || '', t0 = null, dur = 1400;
-    function step(ts) {
-      if (!t0) t0 = ts;
-      var p = Math.min((ts - t0) / dur, 1), e = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(end * e) + suf;
-      if (p < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-  var nums = document.querySelectorAll('.ac-stat-num[data-count]');
-  if ('IntersectionObserver' in window && !reduce && nums.length) {
-    var io2 = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { countUp(e.target); io2.unobserve(e.target); } });
-    }, { threshold: 0.6 });
-    nums.forEach(function (n) { io2.observe(n); });
-  }
-})();
-</script>
 </body>
 </html>
