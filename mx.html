@@ -14,6 +14,8 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://allconga.com/mx.html">
 <title>Motocross Track Builder in North Georgia & the Southeast | ALLCON | Gainesville, GA</title>
+<link rel="preload" as="image" type="image/webp" href="images/hero-video5-poster.webp" media="(min-width: 769px)">
+<link rel="preload" as="image" type="image/webp" href="images/hero-video5mobile-poster.webp" media="(max-width: 768px)">
 <link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -243,11 +245,11 @@
 
   <!-- HERO -->
   <section class="ac-page-hero">
-    <video autoplay muted loop playsinline class="ac-page-hero-video desktop-video">
-      <source src="images/hero-video5.mp4" type="video/mp4">
+    <video class="ac-page-hero-video desktop-video" data-lazy muted loop playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="none" poster="images/hero-video5-poster.webp" aria-hidden="true" tabindex="-1">
+      <source data-src="images/hero-video5.web.mp4" type="video/mp4">
     </video>
-    <video autoplay muted loop playsinline class="ac-page-hero-video mobile-video">
-      <source src="images/hero-video5mobile.mp4" type="video/mp4">
+    <video class="ac-page-hero-video mobile-video" data-lazy muted loop playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="none" poster="images/hero-video5mobile-poster.webp" aria-hidden="true" tabindex="-1">
+      <source data-src="images/hero-video5mobile.web.mp4" type="video/mp4">
     </video>
     <div class="ac-page-hero-overlay">
       <div class="ac-hero-accent-left"></div>
@@ -263,7 +265,7 @@
 
   <!-- SERVICES LIST -->
   <section class="ac-service-section">
-    <img src="images/mx.jpg" class="ac-service-img" alt="Custom motocross track built by ALLCON in North Georgia">
+    <img src="images/mx.jpg" loading="lazy" class="ac-service-img" alt="Custom motocross track built by ALLCON in North Georgia">
     <div class="ac-service-text">
       <p class="ac-section-label">What We Build</p>
       <h2 class="ac-service-heading">MX Track Services</h2>
@@ -295,10 +297,10 @@
     <p class="ac-section-label">Our Work</p>
     <h2 class="ac-section-title">Recent MX Track Projects</h2>
     <div class="ac-gallery-row">
-      <img src="images/mx2.jpg" alt="Backyard motocross practice track built by ALLCON in Georgia">
-      <img src="images/mx3.jpg" alt="MX jump building and flow design by ALLCON">
-      <img src="images/mx4.jpg" alt="Competition motocross track construction by ALLCON in the Southeast">
-      <img src="images/mx5.jpg" alt="MX track reshaping and drainage shaping by ALLCON">
+      <img src="images/mx2.jpg" loading="lazy" alt="Backyard motocross practice track built by ALLCON in Georgia">
+      <img src="images/mx3.jpg" loading="lazy" alt="MX jump building and flow design by ALLCON">
+      <img src="images/mx4.jpg" loading="lazy" alt="Competition motocross track construction by ALLCON in the Southeast">
+      <img src="images/mx5.jpg" loading="lazy" alt="MX track reshaping and drainage shaping by ALLCON">
     </div>
   </section>
 
@@ -432,6 +434,22 @@
     <a href="tel:6784100310" class="ac-cta-btn2">(678) 410-0310</a>
   </section>
 
+<script>
+(function(){
+  var vids=document.querySelectorAll('video[data-lazy]');
+  if(!vids.length) return;
+  var c=navigator.connection;
+  if((c&&c.saveData)||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  function attach(v){
+    if(v.dataset.loaded) return;
+    var s=v.querySelector('source[data-src]'); if(!s) return;
+    s.src=s.dataset.src; v.dataset.loaded='1'; v.load();
+    var p=v.play(); if(p&&p.catch) p.catch(function(){});
+  }
+  function go(){ vids.forEach(function(v){ if(getComputedStyle(v).display!=='none') attach(v); }); }
+  if(document.readyState==='complete') go(); else window.addEventListener('load',function(){ setTimeout(go,250); });
+})();
+</script>
 </main>
 
 <footer class="ac-footer">
