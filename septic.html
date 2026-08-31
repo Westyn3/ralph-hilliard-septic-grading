@@ -14,6 +14,8 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://allconga.com/septic.html">
 <title>Septic Installation in Dawsonville, Cumming & Gainesville GA | 250+ 5-Star Reviews | ALLCON</title>
+<link rel="preload" as="image" type="image/webp" href="images/hero-video3-poster.webp" media="(min-width: 769px)">
+<link rel="preload" as="image" type="image/webp" href="images/hero-video3mobile-poster.webp" media="(max-width: 768px)">
 <link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -86,11 +88,11 @@
 <main>
   
 <section class="ac-page-hero">
-  <video autoplay muted loop playsinline class="ac-page-hero-video desktop-video">
-    <source src="images/hero-video3.mp4" type="video/mp4">
+  <video class="ac-page-hero-video desktop-video" data-lazy muted loop playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="none" poster="images/hero-video3-poster.webp" aria-hidden="true" tabindex="-1">
+    <source data-src="images/hero-video3.web.mp4" type="video/mp4">
   </video>
-  <video autoplay muted loop playsinline class="ac-page-hero-video mobile-video">
-    <source src="images/hero-video3mobile.mp4" type="video/mp4">
+  <video class="ac-page-hero-video mobile-video" data-lazy muted loop playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="none" poster="images/hero-video3mobile-poster.webp" aria-hidden="true" tabindex="-1">
+    <source data-src="images/hero-video3mobile.web.mp4" type="video/mp4">
   </video>
   <div class="ac-page-hero-overlay">
     <div class="ac-hero-accent-left"></div>
@@ -105,7 +107,7 @@
 </section>
 
 <section class="ac-service-section">
-  <img src="images/septic.jpg" class="ac-service-img" alt="ALLCON septic system installation in North Georgia">
+  <img src="images/septic.jpg" loading="lazy" class="ac-service-img" alt="ALLCON septic system installation in North Georgia">
   <div class="ac-service-text">
     <p class="ac-section-label">What We Offer</p>
     <h2 class="ac-service-heading">Our Septic Services</h2>
@@ -158,11 +160,11 @@
   <p class="ac-section-label">Our Work</p>
   <h2 class="ac-section-title">Recent Septic Installations</h2>
   <div class="ac-gallery-row">
-    <img src="images/septic2.jpg" alt="Septic tank being installed on residential property in North Georgia">
-    <img src="images/septic3.jpg" alt="Drain field installation by ALLCON in Gainesville GA">
-    <img src="images/septic4.jpg" alt="Septic system excavation and placement in North Georgia">
-    <img src="images/septic5.jpg" alt="Completed septic installation on North Georgia property">
-    <img src="images/septic6.jpg" alt="ALLCON crew completing septic system installation in North Georgia">
+    <img src="images/septic2.jpg" loading="lazy" alt="Septic tank being installed on residential property in North Georgia">
+    <img src="images/septic3.jpg" loading="lazy" alt="Drain field installation by ALLCON in Gainesville GA">
+    <img src="images/septic4.jpg" loading="lazy" alt="Septic system excavation and placement in North Georgia">
+    <img src="images/septic5.jpg" loading="lazy" alt="Completed septic installation on North Georgia property">
+    <img src="images/septic6.jpg" loading="lazy" alt="ALLCON crew completing septic system installation in North Georgia">
   </div>
 </section>
 
@@ -191,6 +193,22 @@
   <a href="tel:6784100310" class="ac-cta-btn2">(678) 410-0310</a>
 </section>
 
+<script>
+(function(){
+  var vids=document.querySelectorAll('video[data-lazy]');
+  if(!vids.length) return;
+  var c=navigator.connection;
+  if((c&&c.saveData)||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  function attach(v){
+    if(v.dataset.loaded) return;
+    var s=v.querySelector('source[data-src]'); if(!s) return;
+    s.src=s.dataset.src; v.dataset.loaded='1'; v.load();
+    var p=v.play(); if(p&&p.catch) p.catch(function(){});
+  }
+  function go(){ vids.forEach(function(v){ if(getComputedStyle(v).display!=='none') attach(v); }); }
+  if(document.readyState==='complete') go(); else window.addEventListener('load',function(){ setTimeout(go,250); });
+})();
+</script>
 </main>
 
 <footer class="ac-footer">
@@ -215,4 +233,3 @@
 
 </body>
 </html>
-
