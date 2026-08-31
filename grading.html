@@ -14,6 +14,8 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://allconga.com/grading.html">
 <title>Land Grading, Clearing & Drainage in Dawsonville, Cumming & Gainesville GA | 250+ 5-Star Reviews | ALLCON</title>
+<link rel="preload" as="image" type="image/webp" href="images/hero-video4-poster.webp" media="(min-width: 769px)">
+<link rel="preload" as="image" type="image/webp" href="images/hero-video4mobile-poster.webp" media="(max-width: 768px)">
 <link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -84,11 +86,11 @@
 <main>
   
 <section class="ac-page-hero">
-  <video autoplay muted loop playsinline class="ac-page-hero-video desktop-video">
-    <source src="images/hero-video4.mp4" type="video/mp4">
+  <video class="ac-page-hero-video desktop-video" data-lazy muted loop playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="none" poster="images/hero-video4-poster.webp" aria-hidden="true" tabindex="-1">
+    <source data-src="images/hero-video4.web.mp4" type="video/mp4">
   </video>
-  <video autoplay muted loop playsinline class="ac-page-hero-video mobile-video">
-    <source src="images/hero-video4mobile.mp4" type="video/mp4">
+  <video class="ac-page-hero-video mobile-video" data-lazy muted loop playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="none" poster="images/hero-video4mobile-poster.webp" aria-hidden="true" tabindex="-1">
+    <source data-src="images/hero-video4mobile.web.mp4" type="video/mp4">
   </video>
   <div class="ac-page-hero-overlay">
     <div class="ac-hero-accent-left"></div>
@@ -103,7 +105,7 @@
 </section>
 
 <section class="ac-service-section">
-  <img src="images/grading.jpg" class="ac-service-img" alt="ALLCON land grading and earthwork in North Georgia">
+  <img src="images/grading.jpg" loading="lazy" class="ac-service-img" alt="ALLCON land grading and earthwork in North Georgia">
   <div class="ac-service-text">
     <p class="ac-section-label">What We Offer</p>
     <h2 class="ac-service-heading">Our Grading Services</h2>
@@ -127,8 +129,8 @@
       <p class="ac-page-sub" style="margin-top: 16px;">Whether you're preparing for new construction or upgrading an existing drainage system, our team ensures proper excavation, grading, and installation for long-lasting performance.</p>
     </div>
     <div class="ac-stormwater-images">
-      <img src="images/grading2.jpg" alt="Stormwater Retention Install 1">
-      <img src="images/grading3.jpg" alt="Stormwater Retention Install 2">
+      <img src="images/grading2.jpg" loading="lazy" alt="Stormwater Retention Install 1">
+      <img src="images/grading3.jpg" loading="lazy" alt="Stormwater Retention Install 2">
     </div>
   </div>
 </section>
@@ -147,9 +149,9 @@
   <p class="ac-section-label">Our Work</p>
   <h2 class="ac-section-title">Additional Grading & Earthwork Projects</h2>
   <div class="ac-gallery-row">
-    <img src="images/grading4.jpg" alt="Land clearing and brush removal by ALLCON in North Georgia">
-    <img src="images/grading5.jpg" alt="Driveway grading and reshaping project in North Georgia">
-    <img src="images/grading6.jpg" alt="Building pad preparation and dirt work by ALLCON in Gainesville GA">
+    <img src="images/grading4.jpg" loading="lazy" alt="Land clearing and brush removal by ALLCON in North Georgia">
+    <img src="images/grading5.jpg" loading="lazy" alt="Driveway grading and reshaping project in North Georgia">
+    <img src="images/grading6.jpg" loading="lazy" alt="Building pad preparation and dirt work by ALLCON in Gainesville GA">
   </div>
 </section>
 
@@ -183,6 +185,22 @@
   <a href="tel:6784100310" class="ac-cta-btn2">(678) 410-0310</a>
 </section>
 
+<script>
+(function(){
+  var vids=document.querySelectorAll('video[data-lazy]');
+  if(!vids.length) return;
+  var c=navigator.connection;
+  if((c&&c.saveData)||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  function attach(v){
+    if(v.dataset.loaded) return;
+    var s=v.querySelector('source[data-src]'); if(!s) return;
+    s.src=s.dataset.src; v.dataset.loaded='1'; v.load();
+    var p=v.play(); if(p&&p.catch) p.catch(function(){});
+  }
+  function go(){ vids.forEach(function(v){ if(getComputedStyle(v).display!=='none') attach(v); }); }
+  if(document.readyState==='complete') go(); else window.addEventListener('load',function(){ setTimeout(go,250); });
+})();
+</script>
 </main>
 
 <footer class="ac-footer">
