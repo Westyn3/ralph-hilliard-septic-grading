@@ -2089,3 +2089,37 @@ a:focus-visible, button:focus-visible {
 html, body { max-width: 100%; overflow-x: clip; }
 @supports not (overflow-x: clip) { html, body { overflow-x: hidden; } }
 .ac-ticker { max-width: 100vw; }
+
+/* ------------------------------
+   FAQ ACCORDIONS + NEXT STEPS (service & contact pages)
+--------------------------------*/
+.ac-faq-list { margin-top: 28px; }
+details.ac-faq-item { border-bottom: 1px solid rgba(255,255,255,0.1); }
+details.ac-faq-item summary {
+    list-style: none; cursor: pointer; position: relative;
+    padding: 20px 40px 20px 0;
+    color: #fff; font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 1.05rem; line-height: 1.4;
+}
+details.ac-faq-item summary::-webkit-details-marker { display: none; }
+details.ac-faq-item summary::after {
+    content: '+'; position: absolute; right: 4px; top: 16px;
+    color: #C0392B; font-size: 1.5rem; font-weight: 400;
+}
+details.ac-faq-item[open] summary::after { content: '\2212'; }
+details.ac-faq-item summary:focus-visible { outline: 2px solid #C0392B; outline-offset: 4px; }
+details.ac-faq-item p {
+    color: rgba(255,255,255,0.75); font-family: 'Barlow', sans-serif;
+    font-size: 0.97rem; line-height: 1.7; margin: 0 0 22px;
+}
+.ac-steps { margin: 28px 0 0; padding: 0; list-style: none; counter-reset: acstep; }
+.ac-steps li {
+    counter-increment: acstep; position: relative; padding: 0 0 26px 58px;
+    color: rgba(255,255,255,0.75); font-family: 'Barlow', sans-serif; font-size: 1rem; line-height: 1.7;
+}
+.ac-steps li::before {
+    content: counter(acstep); position: absolute; left: 0; top: -2px;
+    width: 40px; height: 40px; border: 2px solid #C0392B; color: #fff;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem;
+    display: flex; align-items: center; justify-content: center;
+}
+.ac-steps li strong { color: #fff; }
