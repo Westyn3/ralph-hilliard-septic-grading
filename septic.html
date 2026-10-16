@@ -111,6 +111,17 @@
   gtag('js', new Date());
   gtag('config', 'G-8EY333C7GL');
 </script>
+<script>
+  // Call-click tracking: fires a GA4 event whenever a phone link is tapped
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+    if (!a || typeof gtag !== 'function') return;
+    gtag('event', 'click_to_call', {
+      phone_number: a.getAttribute('href').replace('tel:', ''),
+      link_text: (a.textContent || '').trim().slice(0, 100)
+    });
+  }, true);
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
