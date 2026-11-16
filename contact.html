@@ -212,6 +212,11 @@
         <input type="text" name="_gotcha" style="display:none">
         <button type="submit">Send Message</button>
       </form>
+      <script>
+        document.querySelector('.ac-contact-form').addEventListener('submit', function(){
+          if (typeof gtag === 'function') gtag('event', 'generate_lead', { form: 'contact', page_path: location.pathname });
+        });
+      </script>
     </div>
 
   </div>
